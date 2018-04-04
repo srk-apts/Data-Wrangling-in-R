@@ -1,8 +1,16 @@
+install.packages("tidyverse")
 # Data Wrangling in R
 # 3.2 Importing CSV Files into R
 
 # First, I need to load the tidyverse
 library(tidyverse)
+
+# Convert CO2 from dataframe to tibble
+CO2
+co2_tibble <- as_tibble(CO2)
+co2_tibble
+# filter() function of 'tidyverse' package
+filter(co2_tibble, Type == 'Mississippi'| conc > 100)
 
 # Now let's try loading in the CSV file without any special settings
 inspections <- read_csv('http://594442.youcanlearnit.net/inspections.csv')
@@ -22,9 +30,12 @@ names <- c("ID", "DBAName", "AKAName", "License", "FacilityType", "Risk", "Addre
 
 inspections <- read_csv('http://594442.youcanlearnit.net/inspections.csv', 
                         col_names=names)
+glimpse(inspections)
 
 # That changed the variable names, but it also imported the variable names that were in the
 # file as the first data row.  So let me try this again and tell read_csv to skip the first line.
 
 inspections <- read_csv('http://594442.youcanlearnit.net/inspections.csv', 
                         col_names=names, skip=1)
+glimpse(inspections)
+
