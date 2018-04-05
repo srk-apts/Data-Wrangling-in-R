@@ -9,5 +9,12 @@ library(tidyverse)
 
 # Use the read_delim function to look at the file 
 deaths <- read_delim(file='http://594442.youcanlearnit.net/drugdeaths.txt', delim='^')
-
 glimpse(deaths)
+
+# Using read_delim() function to read csv file
+inspections <- read_delim('http://594442.youcanlearnit.net/inspections.csv', delim=',')
+glimpse(inspections)
+
+# Using read_delim() function to read tsv file
+inpatient <- read_delim('http://594442.youcanlearnit.net/inpatient.tsv', delim='\t')
+glimpse(inpatient)
